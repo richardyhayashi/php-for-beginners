@@ -4,7 +4,7 @@
 ## Laracasts YouTube
 
 1. How to Choose a First Programming Language
-2.
+2. PHP For Beginners, Ep 2 - Tools of the Trade
 3.
 4.
 5.
