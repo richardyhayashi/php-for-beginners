@@ -10,6 +10,10 @@
 
 `$ docker compose down`
 
+### Enter Container
+
+`$ docker exec -it {container-id|container_name} sh`
+
 ## PHP Code
 
 `<?php echo "Hello World"; ?>`

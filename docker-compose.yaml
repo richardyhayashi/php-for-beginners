@@ -10,11 +10,22 @@ services:
       MYSQL_ROOT_PASSWORD: supersecret
 
   php-app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Use user id & group id in .env
+        USER_ID: ${USER_ID:-0}
+        GROUP_ID: ${GROUP_ID:-0}
+    user: ${USER_ID}:${GROUP_ID}
     ports:
       - 8888:8888
     volumes:
       - ./php-app:/app
+      # Set the logins and groups identical to host environment
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro
     depends_on:
       - mysql
 
